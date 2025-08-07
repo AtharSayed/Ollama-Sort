@@ -1,0 +1,26 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+
+# API credentials and tokens (⚠️ sensitive files)
+credentials.json
+token.json
+client_secret_*.json
+
+# Build and distribution directories
+dist/
+build/
+*.egg-info/
+.dist/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor settings (optional)
+.vscode/
+
