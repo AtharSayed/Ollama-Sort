@@ -1,0 +1,22 @@
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Build output
+.dist/
+
+# Git files
+.git/
+.gitignore
+
+# Sensitive credentials
+credentials.json
+token.json
+
+# Docker-related (optional)
+.dockerignore
+Dockerfile
+
+
+# Testing file only for my local use 
+testgmail.py
