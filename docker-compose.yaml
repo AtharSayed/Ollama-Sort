@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama  # persist downloaded models
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]  # only needed if using GPU
+
+  app:
+    build:
+      context: .
+    container_name: email-classifier-app
+    depends_on:
+      - ollama
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    command: ["python", "main.py"]
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
